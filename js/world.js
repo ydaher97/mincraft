@@ -16,9 +16,23 @@ let selectedElement = null;
 
 function selectTool(tool) {
     selectedTool = tool;
+    const toolButtons = document.querySelectorAll('.tools button');
+    toolButtons.forEach(button => {
+        button.classList.remove('selected');
+        if (button.id === tool + 'Button') {
+            button.classList.add('selected');
+        }
+    });
 }
 function selectElement(element) {
     selectedElement = element;
+    const elements = document.querySelectorAll('.materials h1');
+    elements.forEach(el => {
+        el.classList.remove('selected');
+        if (el.id === element) {
+            el.classList.add('selected');
+        }
+    });
 }
 
 
@@ -93,8 +107,8 @@ export function draw(gameBoard) {
            
 
             const tile = document.createElement('div');
-            tile.style.gridColumnStart =  row
-            tile.style.gridRowStart = 10 + col
+            // tile.style.gridColumnStart =  row
+            // tile.style.gridRowStart =  col
             tile.classList.add('tile');
             tile.classList.add(tileType); 
 
@@ -103,17 +117,17 @@ export function draw(gameBoard) {
             tile.addEventListener('click', () => {
                 if (selectedTool) {
                     if (selectedTool === 'Axe' && tileType === TILE_TYPES.TREE) {
-                        tile.style.display = 'none'; 
+                        tile.className = 'cell white-color'; 
                         removedTiles.push( tileType ); 
                         treeSpan.textContent = removedTiles.filter(t => t === TILE_TYPES.TREE).length;
 
                     } else if (selectedTool === 'Pickaxe' && tileType === TILE_TYPES.ROCK) {
-                        tile.style.display = 'none';
+                        tile.className = 'cell white-color'; 
                         removedTiles.push( tileType ); 
                         rockSpan.textContent = removedTiles.filter(t => t === TILE_TYPES.ROCK).length;
 
                     } else if (selectedTool === 'Shovel' && tileType === TILE_TYPES.GRASS) {
-                        tile.style.display = 'none'; 
+                        tile.className = 'cell white-color';  
 
                         removedTiles.push( tileType ); 
                         grassSpan.textContent = removedTiles.filter(t => t === TILE_TYPES.GRASS).length;
@@ -121,12 +135,12 @@ export function draw(gameBoard) {
                     }
                 } else if (selectedElement) {
                     console.log(selectElement)
-                    if (tile.classList.contains('empty')) {
+                    if (tile.classList.contains('white-color')) {
                         // If the clicked tile is empty, add the selected material to it
                         console.log('empty')
-                        tile.classList.remove('empty');
+                        tile.classList.remove('white-color');
                         tile.classList.add(selectedElement);
-                        worldMap[row][col] = selectedElement;
+                        // worldMap[row][col] = selectedElement;
 
                         // Update the count in the respective span
                         const countSpan = document.getElementById(`${selectedElement}Span`);
@@ -158,14 +172,21 @@ document.addEventListener('DOMContentLoaded', function () {
 
     axeButton.addEventListener('click', function () {
       selectTool('Axe');
+      selectElement(null);
+      
+
     });
 
     pickaxeButton.addEventListener('click', function () {
       selectTool('Pickaxe');
+      selectElement(null);
+
     });
 
     shovelButton.addEventListener('click', function () {
       selectTool('Shovel');
+      selectElement(null);
+
     });
 
     grassButton.addEventListener('click', function () {
@@ -175,10 +196,14 @@ document.addEventListener('DOMContentLoaded', function () {
 
     treeButton.addEventListener('click', function () {
         selectElement(TILE_TYPES.TREE);
+        selectTool(null)
+
     });
 
     rockButton.addEventListener('click', function () {
         selectElement(TILE_TYPES.ROCK);
+        selectTool(null)
+
     });
 
 

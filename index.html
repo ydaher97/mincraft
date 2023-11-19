@@ -8,22 +8,24 @@
     <script src="game.js" defer type="module"></script>
 </head>
 <body>
-    <h1>Select a Tool</h1>
-    <div>
-      <button id="axeButton">Axe</button>
-      <button id="pickaxeButton">Pickaxe</button>
-      <button id="shovelButton">Shovel</button>
+    <div class="tools">
+      <h1>Select a Tool</h1>
+
+      <button id="axeButton"><img src="./imges/Iron_Axe_JE5_BE2.webp" alt="axe" style="width: 100px;"></button>
+      <button id="pickaxeButton"><img src="./imges/pickaxe.jfif" alt="axe" style="width: 100px;"></button>
+      <button id="shovelButton"><img src="./imges/shovel.png" alt="axe" style="width: 100px;"></button>
     </div>
 
     <div id="game-board">
 
     </div>
 
-    <h1>Select a elemnt</h1>
-    <div>
-      <h1 id="grass" class="grass">grass <span id="grassSpan">0</span></h1>
-      <h1 id="tree" class="tree">tree <span id="treeSpan">0</span></h1>
-      <h1 id="rock" class="rock">rock <span id="rockSpan">0</span></h1>
+    
+    <div class="materials">
+      <h1>Select a elemnt</h1>
+      <h1 id="grass" class="grass">grass <span id="grassSpan"></span></h1>
+      <h1 id="tree" class="tree">rock <span id="treeSpan">0</span></h1>
+      <h1 id="rock" class="rock">lava<span id="rockSpan">0</span></h1>
     </div>
 </body>
 </html>
