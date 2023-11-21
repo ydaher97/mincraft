@@ -133,7 +133,7 @@ export function draw(gameBoard) {
 
                     }
                 } else if (selectedElement) {
-                    if (tile.classList.contains('white-color')) {
+                    if (tile.classList.contains('white-color') && removedTiles.filter(t => t === selectedElement).length > 0) {
                         tile.classList.remove('white-color');
                         tile.classList.add(selectedElement);
 
@@ -146,6 +146,8 @@ export function draw(gameBoard) {
                             }
                             countSpan.textContent = removedTiles.filter(t => t === selectedElement).length;
                         }
+                    }else{
+                        console.log('no more')
                     }
                 }
             });
@@ -213,7 +215,7 @@ document.addEventListener('DOMContentLoaded', function () {
     document.getElementById('grassSpan').textContent = '0';
     document.getElementById('treeSpan').textContent = '0';
     document.getElementById('rockSpan').textContent = '0';
-    
+
      removedTiles = []; 
     selectTool(null)
     selectElement(null);
