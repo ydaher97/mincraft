@@ -113,7 +113,6 @@ export function draw(gameBoard) {
             tile.classList.add(tileType); 
 
 
-
             tile.addEventListener('click', () => {
                 if (selectedTool) {
                     if (selectedTool === 'Axe' && tileType === TILE_TYPES.TREE) {
@@ -134,18 +133,17 @@ export function draw(gameBoard) {
 
                     }
                 } else if (selectedElement) {
-                    console.log(selectElement)
                     if (tile.classList.contains('white-color')) {
-                        // If the clicked tile is empty, add the selected material to it
-                        console.log('empty')
                         tile.classList.remove('white-color');
                         tile.classList.add(selectedElement);
-                        // worldMap[row][col] = selectedElement;
 
-                        // Update the count in the respective span
                         const countSpan = document.getElementById(`${selectedElement}Span`);
                         if (countSpan) {
-                            removedTiles.push(selectedElement);
+                            // countSpan.textContent = parseInt(countSpan.textContent) - 1; 
+                            const index = removedTiles.indexOf(selectedElement);
+                            if (index !== -1) {
+                                removedTiles.splice(index, 1); // Remove selectedElement from removedTiles
+                            }
                             countSpan.textContent = removedTiles.filter(t => t === selectedElement).length;
                         }
                     }
