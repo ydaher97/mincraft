@@ -13,7 +13,7 @@ function main(currentTime){
 
 
     update()
-
+    
     draw()
 }
 
@@ -29,3 +29,8 @@ function draw(){
     drowWorld(gameBoard)
   
 }
+
+
+
+
+

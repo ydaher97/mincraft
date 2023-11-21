@@ -8,12 +8,23 @@
     <script src="game.js" defer type="module"></script>
 </head>
 <body>
+
+  <section id="landingSection">
+    <div class="landing">
+      <h1>Welcome to Minecraft Adventure!</h1>
+      <p>Get ready for a thrilling 2D Minecraft experience!</p>
+      <button onclick="startGame()">Start</button>
+  </div>
+  </section>
+
+  <section id="gameSection" style="display: none;">
     <div class="tools">
       <h1>Select a Tool</h1>
 
       <button id="axeButton"><img src="./imges/Iron_Axe_JE5_BE2.webp" alt="axe" style="width: 100px;"></button>
       <button id="pickaxeButton"><img src="./imges/pickaxe.jfif" alt="axe" style="width: 100px;"></button>
       <button id="shovelButton"><img src="./imges/shovel.png" alt="axe" style="width: 100px;"></button>
+      <button id="resetButton">Reset</button>
     </div>
 
     <div id="game-board">
@@ -27,5 +38,10 @@
       <h1 id="tree" class="tree">rock: <span id="treeSpan">0</span></h1>
       <h1 id="rock" class="rock">lava:<span id="rockSpan">0</span></h1>
     </div>
+  </section>
+
+
+  <script src="./js/landing.js"></script>
+
 </body>
 </html>

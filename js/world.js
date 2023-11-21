@@ -64,11 +64,11 @@ const mapHeight =12;
 
 
 
- const worldMap = generateRandomMap(mapWidth, mapHeight);
+ let worldMap = generateRandomMap(mapWidth, mapHeight);
 
 
 
- const removedTiles = [];
+let removedTiles = [];
 
  
  const initGame = (gameBoard) => {
@@ -142,7 +142,7 @@ export function draw(gameBoard) {
                             // countSpan.textContent = parseInt(countSpan.textContent) - 1; 
                             const index = removedTiles.indexOf(selectedElement);
                             if (index !== -1) {
-                                removedTiles.splice(index, 1); // Remove selectedElement from removedTiles
+                                removedTiles.splice(index, 1); 
                             }
                             countSpan.textContent = removedTiles.filter(t => t === selectedElement).length;
                         }
@@ -204,7 +204,22 @@ document.addEventListener('DOMContentLoaded', function () {
 
     });
 
-
+    const resetButton = document.getElementById('resetButton');
+    resetButton.addEventListener('click', resetGame);
 
   });
+
+  function resetGame() {
+    document.getElementById('grassSpan').textContent = '0';
+    document.getElementById('treeSpan').textContent = '0';
+    document.getElementById('rockSpan').textContent = '0';
+    
+     removedTiles = []; 
+    selectTool(null)
+    selectElement(null);
+   
+    const gameBoard = document.getElementById('game-board')
+    worldMap= generateRandomMap(mapWidth, mapHeight)
+    draw(gameBoard)
+}
 

@@ -1,4 +1,8 @@
 body{
+    margin: 0;
+}
+
+#gameSection{
     /* height: 100vh;
     width: 100vw; */
     display: flex;
@@ -86,12 +90,49 @@ button {
 
 
   .tools button.selected {
-    border: 2px solid rgb(229, 25, 25); /* Adjust the border properties as needed */
-    border-radius: 5px; /* Optional: Adds a rounded border */
+    border: 2px solid rgb(229, 25, 25);
+    border-radius: 5px; 
 }
 
-/* Style for selected element */
 .materials h1.selected {
-    border: 2px solid yellow; /* Adjust the border properties as needed */
-    border-radius: 5px; /* Optional: Adds a rounded border */
+    border: 2px solid yellow; 
+    border-radius: 5px; 
+}
+
+#landingSection{
+    background-image: url('./imges/minecraft-background.jpg');
+    background-size: cover;
+    height: 100vh;
+}
+
+.landing{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-top: 6em;
+    font-size: 30px;
+    font-family: monospace;
+}
+
+.landing h1{
+ background-image: url(./imges/grass.jpg);
+ background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  font-weight: 400;
+}
+
+.landing p{
+    background-image: url(./imges/download.jfif);
+  -webkit-background-clip: text;
+  color: transparent;
+  font-weight: 400;
+}
+
+.landing button{
+    background-image: url(./imges/gratis-png-negro-y-rojo-minecraft-textura-mapeo-lava-graficos-por-ordenador-en-3d-rock-textura.png);
+    width: 240px;
+    font-size: 100%;
+    color: white;
 }
